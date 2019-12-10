@@ -42,12 +42,12 @@ public class Main {
         );
 
         personList.stream()
-                .filter(Person.isAdultFemale)
+                .filter(Person.isAdultFemalePredicate)
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
         personList.stream()
-                .filter(Person.isAdultMale)
+                .filter(Person.isAdultMalePredicate)
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
@@ -81,6 +81,6 @@ class Person{
                 '}';
     }
 
-    static public Predicate<Person> isAdultMale   = p -> p.getAge() > 18 && p.getSex().equals(Sex.male);
-    static public Predicate<Person> isAdultFemale = p -> p.getAge() > 18 && p.getSex().equals(Sex.female);
+    static public Predicate<Person> isAdultMalePredicate   = p -> p.getAge() > 18 && p.getSex().equals(Sex.male);
+    static public Predicate<Person> isAdultFemalePredicate = p -> p.getAge() > 18 && p.getSex().equals(Sex.female);
 }
